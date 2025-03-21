@@ -32,10 +32,14 @@ def handle_message(message):
 
 def main():
     logger.info("机器人已启动")
-    try:
-        bot.polling(none_stop=True)
-    except Exception as e:
-        logger.error(f"机器人运行出错: {e}")
+    while True:
+        try:
+            bot.polling(none_stop=True, interval=0, timeout=20)
+        except Exception as e:
+            logger.error(f"机器人运行出错: {e}")
+            logger.info("将在15秒后重试...")
+            bot.stop_polling()
+            time.sleep(15)  # 等待 15 秒后重试
 
 if __name__ == "__main__":
     main()
