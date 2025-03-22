@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 from telebot import TeleBot
 from dotenv import load_dotenv
 from bin_service import check_bin
