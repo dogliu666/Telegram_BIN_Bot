@@ -38,3 +38,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Run main program
+      run: |
+        python handlers.py
